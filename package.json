@@ -1,0 +1,27 @@
+{
+  "name": "js-notify-forwarder",
+  "version": "1.0.0",
+  "description": "a freedesktop notification forwarder",
+  "main": "js-notify-forwarder.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/polographer/js-notify-forwarder.git"
+  },
+  "keywords": [
+    "freedesktop",
+    "javascript",
+    "node"
+  ],
+  "author": "Polo Ornelas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/polographer/js-notify-forwarder/issues"
+  },
+  "homepage": "https://github.com/polographer/js-notify-forwarder#readme",
+  "dependencies": {
+    "dbus-next": "^0.10.2"
+  }
+}
