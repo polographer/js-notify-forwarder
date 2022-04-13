@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/polographer/js-notify-forwarder#readme",
   "dependencies": {
-    "dbus-next": "^0.10.2"
+    "axios": "^0.26.1",
+    "dbus-next": "^0.10.2",
+    "dotenv": "^16.0.0"
   }
 }
