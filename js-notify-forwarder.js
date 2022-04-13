@@ -9,6 +9,7 @@ var bus;
 var obj;
 var monitor;
 var skip = false;
+var last_message = ""
 
 async function setup(){
   bus = dbus.sessionBus();
@@ -28,7 +29,10 @@ function parseAndSend(msg){
     var summary = msg.body[3];
     var body = msg.body[4];
     body = body ? body.replace(/\n/g, " ") : "";
-    sendPushoverMessage(app, summary, body);
+    if(last_message != body){
+      sendPushoverMessage(app, summary, body);
+    }
+    last_message = body;
     console.log(summary);
     skip = false;
   }
@@ -59,4 +63,4 @@ async function main(){
 }
 
 main();
-setInterval(main, 500);
+setInterval(main, 700);
