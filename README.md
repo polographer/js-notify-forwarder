@@ -13,6 +13,8 @@ A raspberry, an ipad or ios, a paid pushover account (its just 5 bucks, its not 
 # does it work
 yes, but the code is very ugly, I couldnt find a way to set db-next-js to be a "forever monitor" so it has to "reattach" every time a noticiation arrives. 
 
+take it like a proof of concept.
+
 # whats next
 - rewrite the whole thing on typescript
 - Research a proper way to do a " forever monitor" 
