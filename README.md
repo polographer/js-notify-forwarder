@@ -14,6 +14,7 @@ A raspberry, an ipad or ios, a paid pushover account (its just 5 bucks, its not 
 yes, but the code is very ugly, I couldnt find a way to set db-next-js to be a "forever monitor" so it has to "reattach" every time a noticiation arrives. 
 
 # whats next
+- rewrite the whole thing on typescript
 - Research a proper way to do a " forever monitor" 
 - refactor as classes and reusability with other push services 
 - write test (not in order of importance)
