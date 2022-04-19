@@ -10,6 +10,7 @@ var obj;
 var monitor;
 var skip = false;
 var last_message = ""
+var handler = true;
 
 async function setup(){
   bus = dbus.sessionBus();
@@ -19,8 +20,10 @@ async function setup(){
   monitor.BecomeMonitor([
         "type='method_call',member='Notify',path='/org/freedesktop/Notifications',interface='org.freedesktop.Notifications'",
       ], 0);
-
-  bus.on('message', parseAndSend);
+  if(handler){
+    bus.on('message', parseAndSend);
+    handler = false;
+  }
 }
 
 function parseAndSend(msg){
@@ -30,15 +33,15 @@ function parseAndSend(msg){
     var body = msg.body[4];
     body = body ? body.replace(/\n/g, " ") : "";
     if(last_message != body){
+      skip = false;
       sendPushoverMessage(app, summary, body);
     }
     last_message = body;
     console.log(summary);
-    skip = false;
   }
 }
 
-function sendPushoverMessage(app, summary, body) {
+async function sendPushoverMessage(app, summary, body) {
   axios.post('https://api.pushover.net/1/messages.json', {
     token: process.env['PUSHOVER_API_KEY'],
     user: process.env['PUSHOVER_USER_KEY'],
@@ -62,5 +65,5 @@ async function main(){
   }
 }
 
-main();
-setInterval(main, 700);
+//main();
+setInterval(main, 100);
